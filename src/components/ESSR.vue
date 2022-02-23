@@ -1,12 +1,13 @@
 <template>
     <div class="essr">
-        Earned: {{earned}}
-        <br/>
-        Saved: {{saved}}
-        <br/>
-        Spent: {{spent}}
-        <br/>
-        Remaining: {{remaining}}
+        <div class="row">
+            <p class="col">Earned: {{earned}}</p>
+            <p class="col">Saved: {{saved}}</p>
+        </div>
+        <div class="row">
+            <p class="col">Spent: {{spent}}</p>
+            <p class="col">Remaining: {{remaining}}</p>
+        </div>
     </div>
 </template>
 
