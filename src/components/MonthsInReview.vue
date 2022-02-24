@@ -3,7 +3,7 @@
         <b-card-header>{{selected}}</b-card-header>
         <b-tabs @activate-tab="onTabChanged" pills card vertical>
             <b-tab v-for="month in months" :key="month" :title="month"/>
-            <b-tab title="Calculator" ><b-card-text>Calculator</b-card-text></b-tab>
+            <b-tab v-on:click="selected='Calculator'" title="Calculator" ><b-card-text>Calculator</b-card-text></b-tab>
         </b-tabs>
     </b-card>
 </template>
@@ -33,7 +33,9 @@ export default {
     },
     methods: {
         onTabChanged: function (e) {
-            this.selected = this.months[e];
+            if ( e <= 11 ) {
+                this.selected = this.months[e];
+            }
         }
     },
     components: {MonthTab}
