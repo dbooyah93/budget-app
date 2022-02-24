@@ -1,10 +1,10 @@
 <template>
-    <b-tab :title=name active>
-        <b-card-header>{{name}}</b-card-header>
+<!-- on click of tab
+    send request to database for information
+ -->
         <b-card-text>
             <b-table hover :items="items" :fields="fields"></b-table>
         </b-card-text>
-    </b-tab>
 </template>
 
 <script>
@@ -36,6 +36,9 @@ export default {
             ]
         }
     },
+    beforeUpdate: function () {
+        console.log('before update')
+    }
 
 }
 </script>

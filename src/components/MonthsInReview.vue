@@ -1,18 +1,8 @@
 <template>
     <b-card no-body >
-        <b-tabs pills card vertical>
-            <month-tab :name="'January'"/>
-            <month-tab :name="'Feburary'"/>
-            <month-tab :name="'March'"/>
-            <month-tab :name="'April'"/>
-            <month-tab :name="'May'"/>
-            <month-tab :name="'June'"/>
-            <month-tab :name="'July'"/>
-            <month-tab :name="'August'"/>
-            <month-tab :name="'September'"/>
-            <month-tab :name="'October'"/>
-            <month-tab :name="'November'"/>
-            <month-tab :name="'December'"/>
+        <b-card-header>{{selected}}</b-card-header>
+        <b-tabs @activate-tab="onTabChanged" pills card vertical>
+            <b-tab v-for="month in months" :key="month" :title="month"/>
             <b-tab title="Calculator" ><b-card-text>Calculator</b-card-text></b-tab>
         </b-tabs>
     </b-card>
@@ -24,6 +14,26 @@ export default {
     name: 'months-in-review',
     data () {
         return {
+            selected: "January",
+            months: [
+                'January',
+                'Feburary',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December',
+            ]
+        }
+    },
+    methods: {
+        onTabChanged: function (e) {
+            this.selected = this.months[e];
         }
     },
     components: {MonthTab}
