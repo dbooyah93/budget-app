@@ -6,6 +6,7 @@
 <script>
 export default {
     name: 'month-tab',
+    props: ["name"],
     data () {
         return {
         }
