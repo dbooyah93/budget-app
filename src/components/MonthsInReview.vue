@@ -1,7 +1,7 @@
 <template>
     <b-card no-body >
         <b-tabs pills card vertical>
-            <b-tab title="January" active><month-tab :name="'January'"/></b-tab>
+            <month-tab :name="'January'"/>
             <b-tab title="Feburary" ><b-card-text>Feburary</b-card-text></b-tab>
             <b-tab title="March" ><b-card-text>March</b-card-text></b-tab>
             <b-tab title="April" ><b-card-text>April</b-card-text></b-tab>

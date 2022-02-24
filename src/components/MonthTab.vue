@@ -1,6 +1,5 @@
 <template>
-    <div >
-    </div>
+    <b-tab title="January" active><b-card-text>{{name}}</b-card-text></b-tab>
 </template>
 
 <script>
