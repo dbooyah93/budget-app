@@ -1,11 +1,14 @@
 <template>
     <div id="app">
         <overview/>
+        <br/>
+        <months-in-review/>
     </div>
 </template>
 
 <script>
 import Overview from './components/Overview.vue';
+import MonthsInReview from './components/MonthsInReview.vue';
 export default {
     name: 'app',
     data () {
@@ -13,7 +16,7 @@ export default {
             msg: 'Welcome to Your Vue.js App',
         }
     },
-    components: {Overview}
+    components: {Overview, MonthsInReview}
 }
 </script>
 <style>
