@@ -1,19 +1,33 @@
 <template>
-    <b-table hover></b-table>
+    <b-table hover :items="items" :fields="fields"></b-table>
 </template>
 
 <script>
 export default {
     name: "expense-item",
     props: [
-        "description",
-        "cost",
-        "date",
-        "category"
+        "items"
     ],
     data () {
         return {
-
+            fields: [
+                {
+                    key: 'description',
+                    sortable: true,
+                },
+                {
+                    key: 'cost',
+                    sortable: true,
+                },
+                {
+                    key: 'date',
+                    sortable: true,
+                },
+                {
+                    key: 'category',
+                    sortable: true,
+                }
+            ],
         }
     }
 }
