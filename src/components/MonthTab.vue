@@ -8,6 +8,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'month-tab',
     props: ["name"],
@@ -19,7 +20,7 @@ export default {
                     sortable: true,
                 },
                 {
-                    key: 'expence',
+                    key: 'cost',
                     sortable: true,
                 },
                 {
