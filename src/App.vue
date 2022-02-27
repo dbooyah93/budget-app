@@ -1,60 +1,67 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
-  </div>
+    <div id="app">
+        <button type="submit" @click="buttonClick">API</button>
+        <overview/>
+        <br/>
+        <months-in-review/>
+    </div>
 </template>
 
 <script>
+import Overview from './components/Overview.vue';
+import MonthsInReview from './components/MonthsInReview.vue';
 export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+    name: 'app',
+    data () {
+        return {
+            msg: 'Welcome to Your Vue.js App',
+        }
+    },
+    methods: {
+        buttonClick: function () {
+            let request = new XMLHttpRequest();
+            request.addEventListener('load', (res, err) => {
+                if ( err ) {
+                    console.log("there was an error");
+                } else {
+                    console.log( {res} );
+                }
+            });
+            request.addEventListener('error', (err) => {
+                console.log({err});
+            });
+            request.open('GET', '/jello');
+            request.send();
+        }
+    },
+    components: {Overview, MonthsInReview}
 }
 </script>
-
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
 }
 
 h1, h2 {
-  font-weight: normal;
+    font-weight: normal;
 }
 
 ul {
-  list-style-type: none;
-  padding: 0;
+    list-style-type: none;
+    padding: 0;
 }
 
 li {
-  display: inline-block;
-  margin: 0 10px;
+    display: inline-block;
+    margin: 0 10px;
 }
 
 a {
-  color: #42b983;
+    color: #42b983;
 }
 </style>
