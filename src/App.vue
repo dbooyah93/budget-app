@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <button type="submit" @click="buttonClick">API</button>
         <overview/>
         <br/>
         <months-in-review/>
@@ -14,6 +15,23 @@ export default {
     data () {
         return {
             msg: 'Welcome to Your Vue.js App',
+        }
+    },
+    methods: {
+        buttonClick: function () {
+            let request = new XMLHttpRequest();
+            request.addEventListener('load', (res, err) => {
+                if ( err ) {
+                    console.log("there was an error");
+                } else {
+                    console.log( {res} );
+                }
+            });
+            request.addEventListener('error', (err) => {
+                console.log({err});
+            });
+            request.open('GET', '/jello');
+            request.send();
         }
     },
     components: {Overview, MonthsInReview}
