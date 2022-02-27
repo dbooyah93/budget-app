@@ -6,8 +6,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "serve": "node app.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "cross-env NODE_ENV=production webpack --progress"
   },
   "dependencies": {
     "bootstrap": "^5.1.3",
