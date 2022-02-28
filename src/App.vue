@@ -24,13 +24,13 @@ export default {
                 if ( err ) {
                     console.log("there was an error");
                 } else {
-                    console.log( {res} );
+                    console.log( res.target.response );
                 }
             });
             request.addEventListener('error', (err) => {
                 console.log({err});
             });
-            request.open('GET', '/jello');
+            request.open('GET', 'http://localhost:3000/january/2019');
             request.send();
         }
     },
