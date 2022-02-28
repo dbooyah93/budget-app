@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <button type="submit" @click="buttonClick">API</button>
-        <overview/>
+        <overview @changed="log"/>
         <br/>
         <months-in-review/>
     </div>
@@ -32,6 +32,9 @@ export default {
             });
             request.open('GET', 'http://localhost:3000/january/2019');
             request.send();
+        },
+        log: function (e) {
+            console.log(e);
         }
     },
     components: {Overview, MonthsInReview}
