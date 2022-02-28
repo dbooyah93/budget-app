@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <overview/>
+        <overview @changedYear="requestYear"/>
         <br/>
         <months-in-review/>
     </div>
@@ -14,6 +14,31 @@ export default {
     data () {
         return {
             msg: 'Welcome to Your Vue.js App',
+            year: 0,
+            month: '',
+        }
+    },
+    methods: {
+        asyncYear: function (year) {
+            let request = new XMLHttpRequest();
+            request.addEventListener('load', (res, err) => {
+                if ( err ) {
+                    console.log("there was an error");
+                } else {
+                    console.log( res.target.response );
+                }
+            });
+            request.addEventListener('error', (err) => {
+                console.log({err});
+            });
+            request.open('GET', 'http://localhost:3000/january/' + year);
+            request.send();
+        },
+        requestYear: function (e) {
+            this.asyncYear(e);
+        },
+        log: function (e) {
+            console.log(e);
         }
     },
     components: {Overview, MonthsInReview}
