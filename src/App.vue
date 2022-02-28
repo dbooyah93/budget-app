@@ -1,7 +1,6 @@
 <template>
     <div id="app">
-        <button type="submit" @click="buttonClick">API</button>
-        <overview @changed="log "/>
+        <overview @changedYear="requestYear"/>
         <br/>
         <months-in-review/>
     </div>
@@ -15,10 +14,12 @@ export default {
     data () {
         return {
             msg: 'Welcome to Your Vue.js App',
+            year: 0,
+            month: '',
         }
     },
     methods: {
-        buttonClick: function () {
+        asyncYear: function (year) {
             let request = new XMLHttpRequest();
             request.addEventListener('load', (res, err) => {
                 if ( err ) {
@@ -30,8 +31,11 @@ export default {
             request.addEventListener('error', (err) => {
                 console.log({err});
             });
-            request.open('GET', 'http://localhost:3000/january/2019');
+            request.open('GET', 'http://localhost:3000/january/' + year);
             request.send();
+        },
+        requestYear: function (e) {
+            this.asyncYear(e);
         },
         log: function (e) {
             console.log(e);
