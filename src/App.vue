@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <button type="submit" @click="buttonClick">API</button>
-        <overview @changed="log"/>
+        <overview @changed="log "/>
         <br/>
         <months-in-review/>
     </div>
