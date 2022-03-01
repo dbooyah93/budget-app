@@ -1,13 +1,18 @@
 <template>
     <div id="app">
-        <button type="submit" @click="buttonClick">API</button>
-        <overview/>
+        <overview @changedYear="updateYear"/>
         <br/>
-        <months-in-review/>
+        <months-in-review :items="items" @change-month="updateMonth"/>
     </div>
 </template>
 
 <script>
+// months-in-review sends up a month selection
+// App sends a request to the server
+// app digests the response this.year && this.month
+// on these value changes this.items is updated
+// on change of the items the array is passed back down
+// child components will digest the new array
 import Overview from './components/Overview.vue';
 import MonthsInReview from './components/MonthsInReview.vue';
 export default {
@@ -15,24 +20,57 @@ export default {
     data () {
         return {
             msg: 'Welcome to Your Vue.js App',
+            year: new Date().getFullYear(),
+            months: [
+                'January',
+                'Feburary',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December',
+            ],
+            month: '',
+            items: [],
         }
     },
     methods: {
-        buttonClick: function () {
+        updateItems: function (month, year) {
             let request = new XMLHttpRequest();
             request.addEventListener('load', (res, err) => {
                 if ( err ) {
                     console.log("there was an error");
                 } else {
-                    console.log( {res} );
+                    this.items = JSON.parse(res.target.response).items;
                 }
             });
             request.addEventListener('error', (err) => {
                 console.log({err});
             });
-            request.open('GET', '/jello');
+            request.open('GET', 'http://localhost:3000/' + month.toLowerCase() + "/" + year);
             request.send();
+        },
+        updateYear: function ( selectedYear ) {
+            this.year = selectedYear;
+            this.updateItems( this.month, this.year );
+        },
+        updateMonth: function ( selectedMonth ) {
+            this.month = selectedMonth;
+            this.updateItems( this.month, this.year );
+        },
+        log: function (e) {
+            console.log(e);
         }
+    },
+    beforeCreate: function () {
+        // debugger;
+        // this.month = this.months[new Date().getMonth()]
+        // updateItems( this.month, this.year )
     },
     components: {Overview, MonthsInReview}
 }

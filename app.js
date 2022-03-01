@@ -1,9 +1,12 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const PORT = 3000;
 
 app.use( '/', express.static( __dirname + '/dist' ) );
-
+app.use(cors({
+    origin: "http://localhost:8080"
+}));
 
 let db = {
     y2019: {
@@ -206,17 +209,9 @@ let db = {
 //     res.json(req.params);
 // });
 
-app.get("/jello", function (req, res) {
-    // month = req.params.month
-    // year = req.params.year
-    console.log(req.params)
-    res.send( db["y"+req.params.year][req.params.month] );
+app.get("/:month/:year", function (req, res) {
+    res.json( db[ "y" + req.params.year ][ req.params.month ] );
 });
-
-// app.get("/", function (req, res) {
-//     console.log('hit')
-//     res.sendFile(__dirname + "/index.html");
-// });
 
 app.listen(PORT, function () {
     console.log("Server is running on http://localhost:" + PORT);
