@@ -20,7 +20,21 @@ export default {
     data () {
         return {
             msg: 'Welcome to Your Vue.js App',
-            year: 2022,
+            year: new Date().getFullYear(),
+            months: [
+                'January',
+                'Feburary',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December',
+            ],
             month: '',
             items: [],
         }
@@ -32,7 +46,6 @@ export default {
                 if ( err ) {
                     console.log("there was an error");
                 } else {
-                    console.log(JSON.parse(res.target.response).items);
                     this.items = JSON.parse(res.target.response).items;
                 }
             });
@@ -53,6 +66,11 @@ export default {
         log: function (e) {
             console.log(e);
         }
+    },
+    beforeCreate: function () {
+        // debugger;
+        // this.month = this.months[new Date().getMonth()]
+        // updateItems( this.month, this.year )
     },
     components: {Overview, MonthsInReview}
 }
