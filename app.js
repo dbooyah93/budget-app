@@ -210,16 +210,8 @@ let db = {
 // });
 
 app.get("/:month/:year", function (req, res) {
-    // month = req.params.month
-    // year = req.params.year
-    res.send( db[ "y" + req.params.year ][ req.params.month ] );
-    // res.send( db["y"+req.params.year][req.params.month] );
+    res.json( db[ "y" + req.params.year ][ req.params.month ] );
 });
-
-// app.get("/", function (req, res) {
-//     console.log('hit')
-//     res.sendFile(__dirname + "/index.html");
-// });
 
 app.listen(PORT, function () {
     console.log("Server is running on http://localhost:" + PORT);
