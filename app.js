@@ -212,8 +212,7 @@ let db = {
 app.get("/:month/:year", function (req, res) {
     // month = req.params.month
     // year = req.params.year
-    console.log(req.params)
-    res.send( db[ "y" + req.params.year ][ req.params.month ]);
+    res.send( db[ "y" + req.params.year ][ req.params.month ] );
     // res.send( db["y"+req.params.year][req.params.month] );
 });
 
