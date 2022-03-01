@@ -1,12 +1,18 @@
 <template>
     <div id="app">
-        <overview @changedYear="requestYear"/>
+        <overview @changedYear="updateYear"/>
         <br/>
-        <months-in-review/>
+        <months-in-review :items="items" @change-month="updateMonth"/>
     </div>
 </template>
 
 <script>
+// months-in-review sends up a month selection
+// App sends a request to the server
+// app digests the response this.year && this.month
+// on these value changes this.items is updated
+// on change of the items the array is passed back down
+// child components will digest the new array
 import Overview from './components/Overview.vue';
 import MonthsInReview from './components/MonthsInReview.vue';
 export default {
@@ -14,28 +20,35 @@ export default {
     data () {
         return {
             msg: 'Welcome to Your Vue.js App',
-            year: 0,
+            year: 2022,
             month: '',
+            items: [],
         }
     },
     methods: {
-        asyncYear: function (year) {
+        updateItems: function (month, year) {
             let request = new XMLHttpRequest();
             request.addEventListener('load', (res, err) => {
                 if ( err ) {
                     console.log("there was an error");
                 } else {
-                    console.log( res.target.response );
+                    console.log(JSON.parse(res.target.response).items);
+                    this.items = JSON.parse(res.target.response).items;
                 }
             });
             request.addEventListener('error', (err) => {
                 console.log({err});
             });
-            request.open('GET', 'http://localhost:3000/january/' + year);
+            request.open('GET', 'http://localhost:3000/' + month.toLowerCase() + "/" + year);
             request.send();
         },
-        requestYear: function (e) {
-            this.asyncYear(e);
+        updateYear: function ( selectedYear ) {
+            this.year = selectedYear;
+            this.updateItems( this.month, this.year );
+        },
+        updateMonth: function ( selectedMonth ) {
+            this.month = selectedMonth;
+            this.updateItems( this.month, this.year );
         },
         log: function (e) {
             console.log(e);
