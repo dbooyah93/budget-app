@@ -23,7 +23,7 @@ export default {
     ],
     data () {
         return {
-            selected: "January",
+            selected: "March",
             months: [
                 'January',
                 'Feburary',
@@ -47,9 +47,15 @@ export default {
                 // set this.items to the response
                 this.selected = this.months[e];
                 this.$emit('change-month', this.selected);
-                console.log(this.selected);
             }
+        },
+        selectCurrentMonth: function () {
+            this.selected = this.months[new Date().getMonth()];
+            this.$emit('change-month', this.selected);
         }
+    },
+    created: function () {
+        this.selectCurrentMonth();
     },
     components: {MonthTab, ExpenseTable}
 }

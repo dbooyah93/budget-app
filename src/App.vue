@@ -7,12 +7,7 @@
 </template>
 
 <script>
-// months-in-review sends up a month selection
-// App sends a request to the server
-// app digests the response this.year && this.month
-// on these value changes this.items is updated
-// on change of the items the array is passed back down
-// child components will digest the new array
+
 import Overview from './components/Overview.vue';
 import MonthsInReview from './components/MonthsInReview.vue';
 export default {
@@ -67,10 +62,10 @@ export default {
             console.log(e);
         }
     },
-    beforeCreate: function () {
-        // debugger;
-        // this.month = this.months[new Date().getMonth()]
-        // updateItems( this.month, this.year )
+    created: function () {
+        console.log(this.months)
+        this.month = this.months[new Date().getMonth()]
+        this.updateItems( this.month, this.year )
     },
     components: {Overview, MonthsInReview}
 }
