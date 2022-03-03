@@ -2,7 +2,7 @@
     <div id="app">
         <overview @changedYear="updateYear"/>
         <br/>
-        <months-in-review :items="items" @change-month="updateMonth"/>
+        <months-in-review :initialMonth="new Date().getMonth()":items="items" @change-month="updateMonth"/>
     </div>
 </template>
 
