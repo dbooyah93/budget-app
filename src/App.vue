@@ -1,12 +1,13 @@
 <template>
     <div id="app">
-        <overview @changedYear="requestYear"/>
+        <overview @changedYear="updateYear"/>
         <br/>
-        <months-in-review/>
+        <months-in-review :initialMonth="new Date().getMonth()":items="items" @change-month="updateMonth"/>
     </div>
 </template>
 
 <script>
+
 import Overview from './components/Overview.vue';
 import MonthsInReview from './components/MonthsInReview.vue';
 export default {
@@ -14,32 +15,57 @@ export default {
     data () {
         return {
             msg: 'Welcome to Your Vue.js App',
-            year: 0,
+            year: new Date().getFullYear(),
+            months: [
+                'January',
+                'Feburary',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December',
+            ],
             month: '',
+            items: [],
         }
     },
     methods: {
-        asyncYear: function (year) {
+        updateItems: function (month, year) {
             let request = new XMLHttpRequest();
             request.addEventListener('load', (res, err) => {
                 if ( err ) {
                     console.log("there was an error");
                 } else {
-                    console.log( res.target.response );
+                    this.items = JSON.parse(res.target.response).items;
                 }
             });
             request.addEventListener('error', (err) => {
                 console.log({err});
             });
-            request.open('GET', 'http://localhost:3000/january/' + year);
+            request.open('GET', 'http://localhost:3000/' + month.toLowerCase() + "/" + year);
             request.send();
         },
-        requestYear: function (e) {
-            this.asyncYear(e);
+        updateYear: function ( selectedYear ) {
+            this.year = selectedYear;
+            this.updateItems( this.month, this.year );
+        },
+        updateMonth: function ( selectedMonth ) {
+            this.month = selectedMonth;
+            this.updateItems( this.month, this.year );
         },
         log: function (e) {
             console.log(e);
         }
+    },
+    created: function () {
+        console.log(this.months)
+        this.month = this.months[new Date().getMonth()]
+        this.updateItems( this.month, this.year )
     },
     components: {Overview, MonthsInReview}
 }

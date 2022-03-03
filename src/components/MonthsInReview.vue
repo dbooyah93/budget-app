@@ -2,7 +2,7 @@
     <b-card no-body >
         <b-card-header>{{selected}}</b-card-header>
         <b-tabs @activate-tab="onTabChanged" pills card vertical>
-            <b-tab v-for="month in months" :key="month" :title="month">
+            <b-tab v-for="month in months" :key="month" :title="month" :active="month === months[initialMonth]">
                 <b-card-text>
                     <expense-table :items="items"/>
                 </b-card-text>
@@ -18,9 +18,13 @@ import MonthTab from "./MonthTab.vue";
 import ExpenseTable from "./ExpenseTable.vue";
 export default {
     name: 'months-in-review',
+    props: [
+        'items',
+        'initialMonth'
+    ],
     data () {
         return {
-            selected: "January",
+            selected: "March",
             months: [
                 'January',
                 'Feburary',
@@ -35,13 +39,6 @@ export default {
                 'November',
                 'December',
             ],
-            items: [
-                { description: 'Milk and eggs from Walmart', cost: 9.39, date: "1/2/2022", category: "Groceries"},
-                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
-                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
-                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
-                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
-            ]
         }
     },
     methods: {
@@ -50,8 +47,16 @@ export default {
                 // api call for the selected month
                 // set this.items to the response
                 this.selected = this.months[e];
+                this.$emit('change-month', this.selected);
             }
+        },
+        selectCurrentMonth: function () {
+            this.selected = this.months[new Date().getMonth()];
+            this.$emit('change-month', this.selected);
         }
+    },
+    created: function () {
+        this.selectCurrentMonth();
     },
     components: {MonthTab, ExpenseTable}
 }
