@@ -2,7 +2,7 @@
     <b-card no-body >
         <b-card-header>{{selected}}</b-card-header>
         <b-tabs @activate-tab="onTabChanged" pills card vertical>
-            <b-tab v-for="month in months" :key="month" :title="month">
+            <b-tab v-for="month in months" :key="month" :title="month" :active="month === months[initialMonth]">
                 <b-card-text>
                     <expense-table :items="items"/>
                 </b-card-text>
@@ -19,11 +19,12 @@ import ExpenseTable from "./ExpenseTable.vue";
 export default {
     name: 'months-in-review',
     props: [
-        'items'
+        'items',
+        'initialMonth'
     ],
     data () {
         return {
-            selected: "January",
+            selected: "March",
             months: [
                 'January',
                 'Feburary',
@@ -47,9 +48,15 @@ export default {
                 // set this.items to the response
                 this.selected = this.months[e];
                 this.$emit('change-month', this.selected);
-                console.log(this.selected);
             }
+        },
+        selectCurrentMonth: function () {
+            this.selected = this.months[new Date().getMonth()];
+            this.$emit('change-month', this.selected);
         }
+    },
+    created: function () {
+        this.selectCurrentMonth();
     },
     components: {MonthTab, ExpenseTable}
 }
