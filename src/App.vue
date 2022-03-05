@@ -1,8 +1,9 @@
 <template>
     <div id="app">
+        <button @click="postListItem">Post List Item</button>
         <overview @changedYear="updateYear"/>
         <br/>
-        <months-in-review :initialMonth="new Date().getMonth()":items="items" @change-month="updateMonth"/>
+        <months-in-review :initialMonth="new Date().getMonth()":items="listItems" @change-month="updateMonth"/>
     </div>
 </template>
 
@@ -31,17 +32,34 @@ export default {
                 'December',
             ],
             month: '',
-            items: [],
+            listItems: [],
         }
     },
     methods: {
-        updateItems: function (month, year) {
+        postListItem: function (){
+            console.log('posting');
+            let request = new XMLHttpRequest();
+            request.addEventListener('load', (res, err) => {
+                if ( err ) {
+                    console.log('there was an err');
+                } else {
+                    this.getListItems(); // changed variable name for clairty
+                    console.log('ok');
+                }
+            });
+            request.addEventListener('error', (err) => {
+                console.log({err});
+            });
+            request.open('POST', 'http://localhost:3000/' + '2020' + '/03' + '/04');
+            request.send();
+        },
+        getListItems: function (month = this.month, year = this.year) { // updated defaults to help internal commands
             let request = new XMLHttpRequest();
             request.addEventListener('load', (res, err) => {
                 if ( err ) {
                     console.log("there was an error");
                 } else {
-                    this.items = JSON.parse(res.target.response).items;
+                    this.listItems = JSON.parse(res.target.response).items;
                 }
             });
             request.addEventListener('error', (err) => {
@@ -52,20 +70,21 @@ export default {
         },
         updateYear: function ( selectedYear ) {
             this.year = selectedYear;
-            this.updateItems( this.month, this.year );
+            this.getListItems( this.month, this.year );
         },
         updateMonth: function ( selectedMonth ) {
             this.month = selectedMonth;
-            this.updateItems( this.month, this.year );
+            this.getListItems( this.month, this.year );
         },
         log: function (e) {
             console.log(e);
         }
     },
     created: function () {
-        console.log(this.months)
+        console.log(this.month)
         this.month = this.months[new Date().getMonth()]
-        this.updateItems( this.month, this.year )
+        this.getListItems( this.month, this.year )
+        console.log(this.month);
     },
     components: {Overview, MonthsInReview}
 }
