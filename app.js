@@ -568,9 +568,31 @@ let db = {
 //     req.params; // { userId: '42' }
 //     res.json(req.params);
 // });
+let fakeDB = []
 
 app.get("/:month/:year", function (req, res) {
+
     res.json( db[ "y" + req.params.year ][ req.params.month ] );
+});
+
+app.post("/:year/:month/:day", function ( req, res ) {
+    // will need a query to run this
+    let postItem = function ( liObjectArr ) {
+        // date is managed by db
+        // liObjectArr = [
+        // { description: 'January 2019', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+        // { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+        // { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+        // { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+        // { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}}
+        // ]
+        fakeDB = liObjectArr;
+        db.y2018.january.items[0].description = "Success";
+        console.log(fakeDB);
+    }
+    console.log(req);
+    postItem(req.params);
+    res.send('ok')
 });
 
 app.listen(PORT, function () {
