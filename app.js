@@ -9,10 +9,10 @@ app.use(cors({
 }));
 
 let db = {
-    y2019: {
+    y2018: {
         january: {
             items: [
-                { description: 'January 2019', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: 'January 2018', cost: 9.39, date: "1/2/2022", category: "Groceries"},
                 { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
                 { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
                 { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
@@ -45,7 +45,79 @@ let db = {
                 { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
                 { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
             ]
-        }
+        },
+        may: {
+            items: [
+                { description: 'May', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        june: {
+            items: [
+                { description: 'june', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        july: {
+            items: [
+                { description: 'July', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        august: {
+            items: [
+                { description: 'August', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        september: {
+            items: [
+                { description: 'September', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        october: {
+            items: [
+                { description: 'October', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        november: {
+            items: [
+                { description: 'November', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        december: {
+            items: [
+                { description: 'December', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
     },
     y2019: {
         january: {
@@ -83,7 +155,79 @@ let db = {
                 { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
                 { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
             ]
-        }
+        },
+        may: {
+            items: [
+                { description: 'May', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        june: {
+            items: [
+                { description: 'june', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        july: {
+            items: [
+                { description: 'July', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        august: {
+            items: [
+                { description: 'August', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        september: {
+            items: [
+                { description: 'September', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        october: {
+            items: [
+                { description: 'October', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        november: {
+            items: [
+                { description: 'November', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        december: {
+            items: [
+                { description: 'December', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
     },
     y2020: {
         january: {
@@ -121,7 +265,79 @@ let db = {
                 { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
                 { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
             ]
-        }
+        },
+        may: {
+            items: [
+                { description: 'May', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        june: {
+            items: [
+                { description: 'june', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        july: {
+            items: [
+                { description: 'July', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        august: {
+            items: [
+                { description: 'August', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        september: {
+            items: [
+                { description: 'September', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        october: {
+            items: [
+                { description: 'October', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        november: {
+            items: [
+                { description: 'November', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        december: {
+            items: [
+                { description: 'December', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
     },
     y2021: {
         january: {
@@ -159,9 +375,81 @@ let db = {
                 { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
                 { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
             ]
-        }
+        },
+        may: {
+            items: [
+                { description: 'May', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        june: {
+            items: [
+                { description: 'june', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        july: {
+            items: [
+                { description: 'July', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        august: {
+            items: [
+                { description: 'August', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        september: {
+            items: [
+                { description: 'September', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        october: {
+            items: [
+                { description: 'October', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        november: {
+            items: [
+                { description: 'November', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        december: {
+            items: [
+                { description: 'December', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
     },
-    y2022: {
+    y2022:{
         january: {
             items: [
                 { description: 'January 2022', cost: 9.39, date: "1/2/2022", category: "Groceries"},
@@ -197,8 +485,80 @@ let db = {
                 { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
                 { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
             ]
-        }
-    }
+        },
+        may: {
+            items: [
+                { description: 'May', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        june: {
+            items: [
+                { description: 'june', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        july: {
+            items: [
+                { description: 'July', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        august: {
+            items: [
+                { description: 'August', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        september: {
+            items: [
+                { description: 'September', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        october: {
+            items: [
+                { description: 'October', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        november: {
+            items: [
+                { description: 'November', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+        december: {
+            items: [
+                { description: 'December', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+                { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+                { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+                { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+                { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            ]
+        },
+    },
 }
 
 // `:userId` is a route parameter. Express will capture whatever
@@ -208,9 +568,32 @@ let db = {
 //     req.params; // { userId: '42' }
 //     res.json(req.params);
 // });
+let fakeDB = []
 
 app.get("/:month/:year", function (req, res) {
+
     res.json( db[ "y" + req.params.year ][ req.params.month ] );
+});
+
+app.post("/:year/:month/:day", function ( req, res ) {
+    // will need a query to run this
+    let postItem = function ( liObjectArr ) {
+        // date is managed by db
+        // liObjectArr = [
+        // { description: 'January 2019', cost: 9.39, date: "1/2/2022", category: "Groceries"},
+        // { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
+        // { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
+        // { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
+        // { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}}
+        // ]
+        fakeDB = liObjectArr;
+        db.y2018.january.items[0].description = "Success";
+        console.log(db.y2018.january.items[0]);
+        console.log(fakeDB);
+    }
+    // removed console.log(req);
+    postItem(req.params);
+    res.send('ok')
 });
 
 app.listen(PORT, function () {
