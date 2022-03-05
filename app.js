@@ -588,9 +588,10 @@ app.post("/:year/:month/:day", function ( req, res ) {
         // ]
         fakeDB = liObjectArr;
         db.y2018.january.items[0].description = "Success";
+        console.log(db.y2018.january.items[0]);
         console.log(fakeDB);
     }
-    console.log(req);
+    // removed console.log(req);
     postItem(req.params);
     res.send('ok')
 });

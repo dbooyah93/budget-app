@@ -36,7 +36,7 @@ export default {
         }
     },
     methods: {
-        postListItem: function (){
+        postListItem: function ( object ){
             console.log('posting');
             let request = new XMLHttpRequest();
             request.addEventListener('load', (res, err) => {
@@ -50,7 +50,8 @@ export default {
             request.addEventListener('error', (err) => {
                 console.log({err});
             });
-            request.open('POST', 'http://localhost:3000/' + '2020' + '/03' + '/04');
+            // send object variable with reuqest
+            request.open('POST', 'http://localhost:3000/' + new Date().getFullYear() + '/' + new Date().getMonth() + '/' + new Date().getDay());
             request.send();
         },
         getListItems: function (month = this.month, year = this.year) { // updated defaults to help internal commands
