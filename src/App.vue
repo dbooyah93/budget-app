@@ -3,7 +3,7 @@
         <button @click="postListItem">Post List Item</button>
         <overview @changedYear="updateYear"/>
         <br/>
-        <months-in-review :initialMonth="new Date().getMonth()":items="listItems" @change-month="updateMonth"/>
+        <months-in-review :initialMonth="new Date().getMonth()" :items="listItems" @change-month="updateMonth"/>
     </div>
 </template>
 
