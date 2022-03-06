@@ -51,7 +51,7 @@ export default {
                 console.log({err});
             });
             // send object variable with reuqest
-            request.open('POST', 'http://localhost:3000/' + new Date().getFullYear() + '/' + new Date().getMonth() + '/' + new Date().getDay());
+            request.open('POST', 'http://192.168.86.23:3000/' + new Date().getFullYear() + '/' + new Date().getMonth() + '/' + new Date().getDay());
             request.send();
         },
         getListItems: function (month = this.month, year = this.year) { // updated defaults to help internal commands
@@ -66,7 +66,7 @@ export default {
             request.addEventListener('error', (err) => {
                 console.log({err});
             });
-            request.open('GET', 'http://localhost:3000/' + month.toLowerCase() + "/" + year);
+            request.open('GET', 'http://192.168.86.23:3000/' + month.toLowerCase() + "/" + year);
             request.send();
         },
         updateYear: function ( selectedYear ) {
