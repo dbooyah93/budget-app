@@ -4,6 +4,13 @@
  -->
         <b-card-text>
             <expense-table :items="items"/>
+            <!-- Calculator should be called here -->
+            <!--
+                calculator must post results to db
+                    and update items directly 
+                    (calculator will emit an event which carries 
+                    with it an Array? representing the items)
+             -->
         </b-card-text>
 </template>
 

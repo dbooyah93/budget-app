@@ -7,8 +7,7 @@
                     <expense-table :items="items"/>
                 </b-card-text>
             </b-tab>
-            <b-tab v-on:click="selected='Calculator'" title="Calculator" >
-            </b-tab>
+            <!-- calculator should be it's own component on the app layer -->
         </b-tabs>
     </b-card>
 </template>
