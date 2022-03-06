@@ -6,6 +6,7 @@
                 <b-card-text>
                     <expense-table :items="items"/>
                 </b-card-text>
+                <input-submit />
             </b-tab>
             <b-tab v-on:click="selected='Calculator'" title="Calculator" >
             </b-tab>
@@ -16,6 +17,8 @@
 <script>
 import MonthTab from "./MonthTab.vue";
 import ExpenseTable from "./ExpenseTable.vue";
+import InputSubmit from "./InputSubmit.vue";
+
 export default {
     name: 'months-in-review',
     props: [
@@ -58,6 +61,6 @@ export default {
     created: function () {
         this.selectCurrentMonth();
     },
-    components: {MonthTab, ExpenseTable}
+    components: {MonthTab, ExpenseTable, InputSubmit}
 }
 </script>

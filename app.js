@@ -571,7 +571,6 @@ let db = {
 let fakeDB = []
 
 app.get("/:month/:year", function (req, res) {
-
     res.json( db[ "y" + req.params.year ][ req.params.month ] );
 });
 
@@ -596,6 +595,6 @@ app.post("/:year/:month/:day", function ( req, res ) {
     res.send('ok')
 });
 
-app.listen(PORT, function () {
-    console.log("Server is running on http://localhost:" + PORT);
+app.listen(PORT, '192.168.86.23', function () {
+    console.log("Server is running on http://192.168.86.23:" + PORT);
 });
