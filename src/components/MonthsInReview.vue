@@ -6,7 +6,7 @@
                 <b-card-text>
                     <expense-table :items="items"/>
                 </b-card-text>
-                <input-submit />
+                <input-submit @lineItemSubmitted="bubbleSubmitSuccess" />
             </b-tab>
             <b-tab v-on:click="selected='Calculator'" title="Calculator" >
             </b-tab>
@@ -45,17 +45,21 @@ export default {
         }
     },
     methods: {
-        onTabChanged: function (e) {
-            if ( e <= 11 ) {
+        onTabChanged: function ( monthIndex ) {
+            if ( monthIndex <= 11 ) {
                 // api call for the selected month
                 // set this.items to the response
-                this.selected = this.months[e];
+                this.selected = this.months[ monthIndex ];
                 this.$emit('change-month', this.selected);
             }
         },
         selectCurrentMonth: function () {
             this.selected = this.months[new Date().getMonth()];
             this.$emit('change-month', this.selected);
+        },
+        bubbleSubmitSuccess: function ( obj ) {
+            this.$emit('successfulSubmission', obj); 
+            console.log('success from inputsubmit', {obj});
         }
     },
     created: function () {

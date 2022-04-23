@@ -1,4 +1,5 @@
 <template>
+    <!-- Earned Saved Spent Remaining -->
     <div class="essr">
         <div class="row">
             <div class="col d-flex justify-content-between"><p>Earned:</p> <p>{{earned}}</p></div>

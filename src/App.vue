@@ -3,7 +3,7 @@
         <button @click="postListItem">Post List Item</button>
         <overview @changedYear="updateYear"/>
         <br/>
-        <months-in-review :initialMonth="new Date().getMonth()" :items="listItems" @change-month="updateMonth"/>
+        <months-in-review :initialMonth="new Date().getMonth()" :items="listItems" @change-month="updateMonth" @successfulSubmission="getListItems(month, year)"/>
     </div>
 </template>
 
@@ -36,13 +36,25 @@ export default {
         }
     },
     methods: {
+        handleNewItem: function (e) {
+
+        },
         postListItem: function ( object ){
             console.log('posting');
             let request = new XMLHttpRequest();
+            let date = new Date().getDay();
+            let month = new Date().getMonth();
+            let year = new Date().getFullYear();
+            if ( object !== undefined ) {
+                date = object.split('/')[0];
+                month = object.split('/')[1];
+                year = object.split('/')[2];
+            }
             request.addEventListener('load', (res, err) => {
                 if ( err ) {
                     console.log('there was an err');
                 } else {
+                    console.log('get list items')
                     this.getListItems(); // changed variable name for clairty
                     console.log('ok');
                 }
@@ -51,10 +63,11 @@ export default {
                 console.log({err});
             });
             // send object variable with reuqest
-            request.open('POST', 'http://192.168.86.23:3000/' + new Date().getFullYear() + '/' + new Date().getMonth() + '/' + new Date().getDay());
+            request.open('POST', 'http://192.168.86.23:3000/' + date + '/' + month + '/' + year);
             request.send();
         },
         getListItems: function (month = this.month, year = this.year) { // updated defaults to help internal commands
+            // on success from input-submit rerun this function
             let request = new XMLHttpRequest();
             request.addEventListener('load', (res, err) => {
                 if ( err ) {
