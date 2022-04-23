@@ -7,6 +7,7 @@ app.use( '/', express.static( __dirname + '/dist' ) );
 app.use(cors({
     origin: "http://localhost:8080"
 }));
+app.use(express.json())
 
 let db = {
     y2018: {
@@ -578,23 +579,13 @@ app.get("/:month/:year", function (req, res) {
 app.post("/:day/:month/:year", function ( req, res ) {
     // will need a query to run this
     let postItem = function ( liObjectArr ) {
-        console.log({liObjectArr})
-        console.log(db['y' + liObjectArr.year][months[liObjectArr.month]])
         db['y' + liObjectArr.year][months[liObjectArr.month]].items.push(
-            { description: 'December', cost: 9.39, date: "1/2/2022", category: "Groceries"},
-            { description: '11.9 Gallons', cost: 39.39, date: "1/2/2022", category: "Gasoline"},
-            { description: 'Tacos from TB', cost: 19.39, date: "1/4/2022", category: "Eating Out"},
-            { description: 'Kitty litter, Cat foot', cost: 43.39, date: "1/5/2022", category: "Cat Supplies"},
-            { description: 'Mortgage', cost: 989, date: "1/2/2022", category: "Mortgage"}
+            req.body
         )
         // currently works as intended
         return;
-        fakeDB = liObjectArr;
-        db.y2018.january.items[0].description = "Success";
-        console.log(db.y2018.january.items[0]);
-        console.log(fakeDB);
     }
-    // removed console.log(req);
+    console.log(req.body);
     postItem(req.params);
     res.send('ok')
 });

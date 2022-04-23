@@ -36,11 +36,7 @@ export default {
         }
     },
     methods: {
-        handleNewItem: function (e) {
-
-        },
         postListItem: function ( object ){
-            console.log('posting');
             let request = new XMLHttpRequest();
             let date = new Date().getDay();
             let month = new Date().getMonth();
@@ -54,7 +50,6 @@ export default {
                 if ( err ) {
                     console.log('there was an err');
                 } else {
-                    console.log('get list items')
                     this.getListItems(); // changed variable name for clairty
                     console.log('ok');
                 }
@@ -95,10 +90,8 @@ export default {
         }
     },
     created: function () {
-        console.log(this.month)
         this.month = this.months[new Date().getMonth()]
         this.getListItems( this.month, this.year )
-        console.log(this.month);
     },
     components: {Overview, MonthsInReview}
 }

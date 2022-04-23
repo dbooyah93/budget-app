@@ -5,10 +5,10 @@
         <b-card-text>
             <b-form v-on:submit.prevent="onSubmit()">
                 <b-input-group >
-                    <b-form-input class="" v-model="text" placeholder="Description"></b-form-input>
-                    <b-form-input class="" v-model="text1" placeholder="Cost"></b-form-input>
-                    <b-form-input class="" v-model="date" placeholder="MM/DD/YYY"></b-form-input>
-                    <b-form-select class="" v-model="selected" :options="categories" placeholder="Category">
+                    <b-form-input class="" v-model="description" placeholder="Description"></b-form-input>
+                    <b-form-input class="" v-model="cost" placeholder="Cost"></b-form-input>
+                    <b-form-input class="" v-model="date" placeholder="DD/MM/YYY"></b-form-input>
+                    <b-form-select class="" v-model="category" :options="categories" placeholder="Category">
                         <template #first>
                             <b-form-select-option :value="null" disabled>-- Please select an option --</b-form-select-option>
                         </template>
@@ -27,11 +27,10 @@ export default {
     props: ["name"],
     data () {
         return {
-            text:'',
-            text1:'',
+            description:'',
+            cost:'',
             date:(new Date().getDate()) + '/' + new Date().getMonth() + '/' +(new Date().getFullYear()),
-            text3:'',
-            selected: null,
+            category: null,
             categories: [
                 {
                     text: 'Mortgage',
@@ -133,13 +132,7 @@ export default {
                 } else {
                     // this.getListItems(); // changed variable name for clairty
                     // emit an event that tells expense table to update
-                    this.$emit('lineItemSubmitted', {
-                        text: this.text,
-                        text1: this.text1,
-                        date: this.date,
-                        text3: this.text3,
-                        category: this.selected
-                    });
+                    this.$emit('lineItemSubmitted');
                     console.log('ok');
                 }
             });
@@ -147,9 +140,14 @@ export default {
                 console.log({err});
             });
             // send object variable with reuqest
-            console.log({date: this.date})
             request.open('POST', endpoint + '/' + this.date);
-            request.send();
+            request.setRequestHeader('Content-Type', 'application/json');
+            request.send( JSON.stringify({
+                        description: this.description,
+                        cost: this.cost,
+                        date: this.date,
+                        category: this.category
+                    }));
         }
     },
     components: {ExpenseTable}
