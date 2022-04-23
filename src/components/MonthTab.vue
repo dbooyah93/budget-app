@@ -16,9 +16,6 @@ export default {
         return {
         }
     },
-    beforeUpdate: function () {
-        console.log('before update')
-    },
     components: {ExpenseTable}
 }
 </script>
