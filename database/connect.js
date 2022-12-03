@@ -2,7 +2,7 @@ var mysql      = require('mysql');
 require('dotenv').config();
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'david',
+  user     : process.env.USERNAME,
   password : process.env.DBPASS,
   database : 'sada_budgetcutapp'
 });
