@@ -41,5 +41,5 @@ export default {
         }
     },
     components: {ESSR}
-}
+};
 </script>

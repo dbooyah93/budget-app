@@ -16,3 +16,9 @@ npm run build
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+
+Forget everything above.
+Open two terminals, and run npm run serve and npm run dev in either. Then use the localhost:8080 app for development and the other for more "real life testing"
+
