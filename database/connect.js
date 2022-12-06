@@ -8,10 +8,18 @@ var connection = mysql.createConnection({
 });
  
 connection.connect();
+
+let newUser = function(userName, checkingAccountId, savingsAccountId) {
+  return "INSERT INTO `sada_budgetcutapp`.`users` (`user_name`) VALUES ('test_1');";
+}
+
+let newCheckingAccount = function () {}
  
-connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-  if (error) throw error;
-  console.log('The solution is: ', results[0].solution);
+connection.query(newUser('node_test'), function (error, results, fields) {
+  if (error) {
+    throw error;
+  }
+  console.log('The results are: ', results, fields);
 });
  
 connection.end();
