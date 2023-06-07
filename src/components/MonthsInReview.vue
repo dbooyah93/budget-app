@@ -6,6 +6,7 @@
                 <b-card-text>
                     <expense-table :items="items"/>
                 </b-card-text>
+                <input-submit @lineItemSubmitted="bubbleSubmitSuccess" />
             </b-tab>
             <b-tab v-on:click="selected='Calculator'" title="Calculator" >
             </b-tab>
@@ -16,6 +17,8 @@
 <script>
 import MonthTab from "./MonthTab.vue";
 import ExpenseTable from "./ExpenseTable.vue";
+import InputSubmit from "./InputSubmit.vue";
+
 export default {
     name: 'months-in-review',
     props: [
@@ -41,16 +44,27 @@ export default {
         }
     },
     methods: {
-        onTabChanged: function (e) {
-            if ( e <= 11 ) {
+        onTabChanged: function ( monthIndex ) {
+            if ( monthIndex <= 11 ) {
                 // api call for the selected month
                 // set this.items to the response
-                this.selected = this.months[e];
+                this.selected = this.months[ monthIndex ];
                 this.$emit('change-month', this.selected);
                 console.log(this.selected);
             }
+        },
+        selectCurrentMonth: function () {
+            this.selected = this.months[new Date().getMonth()];
+            this.$emit('change-month', this.selected);
+        },
+        bubbleSubmitSuccess: function ( obj ) {
+            this.$emit('successfulSubmission', obj); 
+            console.log('success from inputsubmit', {obj});
         }
     },
-    components: {MonthTab, ExpenseTable}
+    created: function () {
+        this.selectCurrentMonth();
+    },
+    components: {MonthTab, ExpenseTable, InputSubmit}
 }
 </script>

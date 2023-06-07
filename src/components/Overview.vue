@@ -1,4 +1,5 @@
 <template>
+<!-- Top level component -->
     <div class="overview container">
         <b-card header="Your Overview">
             <!-- select drop down to the left defining the year to view
@@ -40,5 +41,5 @@ export default {
         }
     },
     components: {ESSR}
-}
+};
 </script>

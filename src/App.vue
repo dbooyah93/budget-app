@@ -2,7 +2,7 @@
     <div id="app">
         <overview @changedYear="updateYear"/>
         <br/>
-        <months-in-review :items="items" @change-month="updateMonth"/>
+        <months-in-review :initialMonth="new Date().getMonth()" :items="listItems" @change-month="updateMonth" @successfulSubmission="getListItems(month, year)"/>
     </div>
 </template>
 
@@ -36,41 +36,66 @@ export default {
                 'December',
             ],
             month: '',
-            items: [],
+            listItems: [],
         }
     },
     methods: {
-        updateItems: function (month, year) {
+        postListItem: function ( listItem ){
             let request = new XMLHttpRequest();
+            let date = new Date().getDay();
+            let month = new Date().getMonth();
+            let year = new Date().getFullYear();
+            if ( listItem !== undefined ) {
+                date = listItem.split('/')[0];
+                month = listItem.split('/')[1];
+                year = listItem.split('/')[2];
+            }
             request.addEventListener('load', (res, err) => {
                 if ( err ) {
-                    console.log("there was an error");
+                    console.log('there was an err');
                 } else {
-                    this.items = JSON.parse(res.target.response).items;
+                    this.getListItems(); // changed variable name for clairty
+                    console.log('ok');
                 }
             });
             request.addEventListener('error', (err) => {
                 console.log({err});
             });
-            request.open('GET', 'http://localhost:3000/' + month.toLowerCase() + "/" + year);
+            // send listItem variable with reuqest
+            request.open('POST', 'http://192.168.86.23:3000/' + date + '/' + month + '/' + year);
+            request.send();
+        },
+        getListItems: function (month = this.month, year = this.year) { // updated defaults to help internal commands
+            // on success from input-submit rerun this function
+            let request = new XMLHttpRequest();
+            request.addEventListener('load', (res, err) => {
+                if ( err ) {
+                    console.log("there was an error");
+                } else {
+                    this.listItems = JSON.parse(res.target.response).items;
+                }
+            });
+            request.addEventListener('error', (err) => {
+                console.log({err});
+            });
+            request.open('GET', 'http://192.168.86.23:3000/' + month.toLowerCase() + "/" + year);
             request.send();
         },
         updateYear: function ( selectedYear ) {
             this.year = selectedYear;
-            this.updateItems( this.month, this.year );
+            this.getListItems( this.month, this.year );
         },
         updateMonth: function ( selectedMonth ) {
             this.month = selectedMonth;
-            this.updateItems( this.month, this.year );
+            this.getListItems( this.month, this.year );
         },
         log: function (e) {
             console.log(e);
         }
     },
-    beforeCreate: function () {
-        // debugger;
-        // this.month = this.months[new Date().getMonth()]
-        // updateItems( this.month, this.year )
+    created: function () {
+        this.month = this.months[new Date().getMonth()]
+        this.getListItems( this.month, this.year )
     },
     components: {Overview, MonthsInReview}
 }
