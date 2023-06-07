@@ -591,6 +591,6 @@ app.post("/:day/:month/:year", function ( req, res ) {
     res.send('ok')
 });
 
-app.listen(PORT, '192.168.86.23', function () {
+app.listen(PORT, function () {
     console.log("Server is running on http://192.168.86.23:" + PORT);
 });
