@@ -1,7 +1,8 @@
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.SERVERPORT || 2029;
 
 app.use( '/', express.static( __dirname + '/dist' ) );
 app.use(cors({
@@ -590,6 +591,6 @@ app.post("/:day/:month/:year", function ( req, res ) {
     res.send('ok')
 });
 
-app.listen(PORT, '192.168.86.23', function () {
+app.listen(PORT, function () {
     console.log("Server is running on http://192.168.86.23:" + PORT);
 });

@@ -1,6 +1,5 @@
 <template>
     <div id="app">
-        <button @click="postListItem">Post List Item</button>
         <overview @changedYear="updateYear"/>
         <br/>
         <months-in-review :initialMonth="new Date().getMonth()" :items="listItems" @change-month="updateMonth" @successfulSubmission="getListItems(month, year)"/>
@@ -36,15 +35,15 @@ export default {
         }
     },
     methods: {
-        postListItem: function ( object ){
+        postListItem: function ( listItem ){
             let request = new XMLHttpRequest();
             let date = new Date().getDay();
             let month = new Date().getMonth();
             let year = new Date().getFullYear();
-            if ( object !== undefined ) {
-                date = object.split('/')[0];
-                month = object.split('/')[1];
-                year = object.split('/')[2];
+            if ( listItem !== undefined ) {
+                date = listItem.split('/')[0];
+                month = listItem.split('/')[1];
+                year = listItem.split('/')[2];
             }
             request.addEventListener('load', (res, err) => {
                 if ( err ) {
@@ -57,7 +56,7 @@ export default {
             request.addEventListener('error', (err) => {
                 console.log({err});
             });
-            // send object variable with reuqest
+            // send listItem variable with reuqest
             request.open('POST', 'http://192.168.86.23:3000/' + date + '/' + month + '/' + year);
             request.send();
         },
