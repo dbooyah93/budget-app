@@ -6,7 +6,7 @@ const PORT = process.env.SERVERPORT || 2029;
 
 app.use( '/', express.static( __dirname + '/dist' ) );
 app.use(cors({
-    origin: "http://localhost:8080"
+    origin: `http://localhost:` + PORT
 }));
 app.use(express.json())
 
@@ -592,5 +592,5 @@ app.post("/:day/:month/:year", function ( req, res ) {
 });
 
 app.listen(PORT, function () {
-    console.log("Server is running on http://192.168.86.23:" + PORT);
+    console.log("Server is running on http://localhost:" + PORT);
 });
