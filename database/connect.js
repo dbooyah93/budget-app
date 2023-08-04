@@ -23,24 +23,24 @@ let newEspense = function ( userId, checkingsAccountId = '', savingsAccountId, u
     let difference;
     let duductChecking = function () {
         connection.query(`SELECT * FROM sada_budgetcutapp.checking_accounts WHERE id=${userId};`)
-            .then( (error, results, fields) => {
-                console.log(results);
-            }) 
+            // .then( (error, results, fields) => {
+            //     console.log(results);
+            // }) 
         // function ( error, results, fields ) {
         //     cashValue = results[0].cash_amount;
         //     difference = cashValue - cashTotal;
         //     console.log(difference);
         // })
-            .then( ( e ) => {
-                console.log(e);
-            });
+            // .then( ( e ) => {
+            //     console.log(e);
+            // });
     }
     // Keep users checking and savings account numbers as a part of their cookies
     // Use that information to send the correct checking or savings account information over to here
     if ( checkingsAccountId != '' ) {
 
         // query database for checking account
-        duductChecking();
+        // duductChecking();
         // subtract cost from checking account balance
         // update database checking account with the difference
         // Insert expense with checking account number and user id 

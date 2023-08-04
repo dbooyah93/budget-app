@@ -16,7 +16,8 @@
     "bootstrap-vue": "^2.21.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
-    "mysql": "^2.18.1",
+    "mysql2": "^3.6.0",
+    "postgres": "^3.3.5",
     "vue": "^2.5.11"
   },
   "browserslist": [
