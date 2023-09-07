@@ -1,14 +1,15 @@
 var mysql      = require('mysql2');
-const Connection = require('mysql/lib/Connection');
 require('dotenv').config();
-var connection = mysql.createConnection({
+
+let connection = mysql.createConnection({
     host     : 'localhost',
-    user     : 'root',
-    password : 'Brother1000101?',
-    database : 'sada_budgetcutapp'
+    user     : 'seeder',
+    password : 'seed1t?',
+    database : 'test_schema'
 });
 
 connection.connect();
 connection.on('error', (err)=>{
     console.log(err);
-})
+});
+connection.end();
