@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.SERVERPORT || 2029;
 
-app.use( '/', express.static( __dirname + '/dist' ) );
+app.use( '/', express.static( __dirname + '/pages' ) );
 app.use(cors({
     origin: `http://localhost:` + PORT
 }));
